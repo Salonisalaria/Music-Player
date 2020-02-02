@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<head>
+<title>Sign Up</title>
+<style>
+body{
+	background-color: rgb(125,250,125);
+	margin: 0px;
+	padding: 0px;
+}
+#div1{
+	background-color: black;
+	color: white;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	position: fixed;
+}
+#button1,#button2{
+	height: 30px;
+	border-radius: 8px;
+	background-color: black;
+	color: white;
+	border:0;
+	font-size:15px;
+}
+.info{
+	height: 50px;
+	width: 50%;
+	outline: 0;
+	border: 0;
+	background-color: #F2F2F2;
+	color: black;
+	padding-left: 20px;
+}
+#input1{
+	border: 0;
+	height: 50px;
+	width: 53%;
+	background-color: rgb(125,250,125);
+	color: white;
+	font-size: 15px;
+}
+a{
+	color: #4CAF50;
+	text-decoration: none;
+}
+</style>
+</head>
+<body>
+<div id='div1'>
+<font face='Helvetica' size='4'><b>HTML5/CSS3 Login Form</b></font>
+<button id='button1' type='button' style="position:absolute;right:3px;top:5px">Login</button>
+<button id='button2' type='button' style="position:absolute;right:68px;top:5px">SignUp</button>
+</div>
+<br><br><br><br><br><br><br><br>
+<table bgcolor="white" align='center' width='40%'>
+<tr height='70px'></tr>
+<tr align='center'>
+<td>
+<input class='info' type='text' placeholder='Name'>
+</td>
+</tr>
+<tr height='20px'></tr>
+<tr align='center'>
+<td>
+<input class='info' type='text' placeholder='Phone Number'>
+</td>
+</tr>
+<tr height='20px'></tr>
+<tr align='center'>
+<td>
+<input class='info' type='text' placeholder='Email'>
+</td>
+</tr>
+<tr height='20px'></tr>
+<tr align='center'>
+<td>
+<input class='info' type='password' placeholder='Password'>
+</td>
+</tr>
+<tr height='20px'></tr>
+<tr align='center'>
+<td>
+<input id='input1' type='button' value='SIGN UP'>
+</td>
+</tr>
+<tr height='30px'>
+<td align='center'><font color="#B3B3B3" size='3px'>Already Registered? </font><a href="Login.html">LogIn Here</a></td>
+</tr>
+<tr height='50px'></tr>
+</table>
+<br><br><br>
+</body>
+<script>
+var input1 = document.getElementById('input1');
+var info = document.getElementsByClassName('info');
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+input1.onclick=function()
+{
+	if(info[0].value==''||info[1].value==''||info[2].value==''||info[3].value=='')
+	{
+		alert("All Fields Required");
+		return;
+	}
+	if(!validateEmail(info[2].value))
+	{
+		alert("Enter valid EmailID");
+		info[2].value='';
+		info[2].focus();
+		return;
+	}
+	alert("SignUp Success. Proceed to LogIn");
+	info[0].value='';
+	info[1].value='';
+	info[2].value='';
+	info[3].value='';
+}
+</script>
+</html>

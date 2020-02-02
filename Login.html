@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<head>
+<title>Log In</title>
+<style>
+body{
+	background-color: rgb(125,250,125);
+	margin: 0px;
+	padding: 0px;
+}
+#div1{
+	background-color: black;
+	color: white;
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+}
+#button1,#button2{
+	height: 30px;
+	border-radius: 8px;
+	background-color: black;
+	color: white;
+	border:0;
+	font-size:15px;
+}
+.info{
+	height: 50px;
+	width: 70%;
+	outline: 0;
+	border: 0;
+	background-color: #F2F2F2;
+	color: black;
+	padding-left: 20px;
+}
+#input1{
+	border: 0;
+	height: 50px;
+	width: 75%;
+	background-color: rgb(125,250,125);
+	color: white;
+	font-size: 15px;
+}
+a{
+	color: #4CAF50;
+	text-decoration: none;
+}
+</style>
+</head>
+<body>
+<div id='div1'>
+<font face='Helvetica' size='4'><b>HTML5/CSS3 Login Form</b></font>
+<button id='button1' type='button' style="position:absolute;right:3px;top:5px">Login</button>
+<button id='button2' type='button' style="position:absolute;right:68px;top:5px">SignUp</button>
+</div>
+<br><br><br><br><br><br><br><br>
+<form method="GET" action="Shop.html">
+<table bgcolor="white" align='center' width='30%'>
+<tr height='70px'></tr>
+<tr align='center'>
+<td>
+<input class='info' type='text' placeholder='Username'>
+</td>
+</tr>
+<tr height='20px'></tr>
+<tr align='center'>
+<td>
+<input class='info' type='password' placeholder='Password'>
+</td>
+</tr>
+<tr height='20px'></tr>
+<tr align='center'>
+<td>
+<input id='input1' type='button' value='LOGIN'>
+</td>
+</tr>
+<tr height='30px'>
+<td align='center'><font color="#B3B3B3" size='3px'>Not Registered? </font><a href="Signup.html">Create an account</a></td>
+</tr>
+<tr height='50px'></tr>
+</table>
+</form>
+<div>
+</div>
+</body>
+<script>
+var input1 = document.getElementById('input1');
+var info = document.getElementsByClassName('info');
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+input1.onclick=function()
+{
+	if(info[0].value==''||info[1].value=='')
+	{
+		alert("Both Username and Password Required");
+		return;
+	}
+	if(!validateEmail(info[0].value))
+	{
+		alert("Enter valid EmailID");
+		info[0].value='';
+		info[0].focus();
+		return;
+	}
+	location.href="index.html";
+}
+</script>
+</html>
